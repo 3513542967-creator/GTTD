@@ -21,3 +21,4 @@ checkpoints/**/*.ckpt
 
 # LaTeX is not a retained artifact for this project.
 *.tex
+!appendix/tables/*.tex

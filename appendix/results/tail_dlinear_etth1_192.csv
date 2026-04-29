@@ -1,0 +1,4 @@
+backbone,dataset,horizon,variant,mse,mae,delta_mse_vs_full_pct,latency_ms,max_prefix_k,rank,template_decay,global_mix,local_alpha,clip_value
+DLinear,ETTh1,192,zero_shot,0.5212999582290649,0.5006527900695801,,0.0,,,,,,
+DLinear,ETTh1,192,full,0.5158092379570007,0.4953901767730713,0.0,2747.9671999972197,,,,,,
+DLinear,ETTh1,192,no_tail,0.5158092379570007,0.4953901767730713,0.0,2213.532599998871,,,,,,

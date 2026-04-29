@@ -1,0 +1,118 @@
+% Auto-generated appendix tables from real local runs.
+
+% Required packages: booktabs, multirow.
+
+\begin{table*}[t]
+\centering
+\caption{Component ablation of the persistent residual-template adapter on DLinear/ETTh1 with horizon $H=96$. Lower MSE and MAE are better. $\Delta$MSE is measured relative to Full GTTD; positive values indicate degradation.}
+\label{tab:appendix_component_ablation_real}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Variant} & \textbf{MSE} & \textbf{MAE} & \textbf{$\Delta$MSE vs. Full} & \textbf{Eval. time (ms)} \\
+\midrule
+Zero-shot backbone & 0.4695 & 0.4662 & -- & 0.0 \\
+Full GTTD & 0.4458 & 0.4503 & +0.00\% & 2500.3 \\
+w/o persistent template & 0.4518 & 0.4563 & +1.35\% & 1328.0 \\
+w/o affine alignment & 0.4518 & 0.4562 & +1.35\% & 1298.0 \\
+w/o low-rank truncation & 0.4458 & 0.4503 & -0.00\% & 1932.5 \\
+w/o low-frequency removal & 0.4410 & 0.4469 & -1.08\% & 1405.3 \\
+w/o local propagation & 0.4635 & 0.4619 & +3.96\% & 2281.9 \\
+w/o clipping & 0.4460 & 0.4504 & +0.04\% & 2361.5 \\
+w/o tail correction & 0.4458 & 0.4503 & +0.00\% & 2288.8 \\
+fixed period = 24 & 0.4467 & 0.4522 & +0.20\% & 1923.5 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table}[t]
+\centering
+\caption{Sensitivity to the number of revealed future prefix steps on DLinear/ETTh1 with horizon $H=96$. This table validates how much online evidence the adapter needs before correction becomes beneficial.}
+\label{tab:appendix_prefix_sensitivity_real}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Prefix $k$} & \textbf{MSE} & \textbf{MAE} & \textbf{Imp. vs. Zero-shot} & \textbf{Eval. time (ms)} \\
+\midrule
+1 & 0.4695 & 0.4662 & +0.00\% & 769.7 \\
+2 & 0.5276 & 0.4959 & -12.37\% & 1961.2 \\
+3 & 0.5132 & 0.4875 & -9.31\% & 2261.3 \\
+6 & 0.4870 & 0.4731 & -3.72\% & 1882.8 \\
+12 & 0.4585 & 0.4577 & +2.34\% & 2141.6 \\
+24 & 0.4474 & 0.4509 & +4.71\% & 2398.5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table*}[t]
+\centering
+\caption{Hyperparameter sensitivity of GTTD on DLinear/ETTh1 with horizon $H=96$. Each row changes one hyperparameter while keeping the others at the default setting.}
+\label{tab:appendix_hparam_sensitivity_real}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{llccc}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{MSE} & \textbf{MAE} & \textbf{Eval. time (ms)} \\
+\midrule
+\multirow{4}{*}{rank} & 1 & 0.4453 & 0.4498 & 2217.4 \\
+ & 2 & 0.4458 & 0.4503 & 2004.1 \\
+ & 4 & 0.4458 & 0.4503 & 1975.0 \\
+ & 8 & 0.4458 & 0.4503 & 1901.0 \\
+\midrule
+\multirow{4}{*}{template decay} & 0.8 & 0.4487 & 0.4520 & 1955.8 \\
+ & 0.9 & 0.4463 & 0.4506 & 2210.4 \\
+ & 0.92 & 0.4458 & 0.4503 & 2209.1 \\
+ & 0.96 & 0.4447 & 0.4498 & 2229.2 \\
+\midrule
+\multirow{4}{*}{global mix} & 0.25 & 0.4439 & 0.4513 & 2243.5 \\
+ & 0.5 & 0.4419 & 0.4494 & 2275.4 \\
+ & 0.75 & 0.4458 & 0.4503 & 2288.0 \\
+ & 1 & 0.4556 & 0.4537 & 2279.7 \\
+\midrule
+\multirow{4}{*}{local alpha} & 0.1 & 0.5062 & 0.4857 & 2197.3 \\
+ & 0.5 & 0.4458 & 0.4503 & 2191.2 \\
+ & 1 & 0.4453 & 0.4497 & 2296.0 \\
+ & 2 & 0.4503 & 0.4533 & 2331.5 \\
+\midrule
+\multirow{4}{*}{clip value} & 0.5 & 0.4452 & 0.4502 & 2247.2 \\
+ & 1 & 0.4463 & 0.4510 & 2266.2 \\
+ & 2.5 & 0.4458 & 0.4503 & 2207.4 \\
+ & 5 & 0.4460 & 0.4504 & 2232.9 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table}[t]
+\centering
+\caption{Effect of the optional long-horizon tail correction on DLinear/ETTh1. The tail branch is inactive at $H=192$ and slightly hurts this $H=336$ setting, so it should be treated as an optional heuristic rather than a core claim.}
+\label{tab:appendix_tail_correction_real}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Variant} & \textbf{$H=192$ MSE} & \textbf{$H=336$ MSE} \\
+\midrule
+Full GTTD & 0.5158 & 0.5686 \\
+w/o tail correction & 0.5158 & 0.5672 \\
+$\Delta$MSE vs. Full & +0.00\% & -0.26\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table*}[t]
+\centering
+\caption{Unverified retained result rows. These rows are listed for transparency and should not be used as main experimental evidence until rerun with the current code.}
+\label{tab:appendix_unverified_rows}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{llcl}
+\toprule
+\textbf{Backbone} & \textbf{Dataset} & \textbf{Horizons} & \textbf{Required action} \\
+\midrule
+MICN & ETTh1 & 96/192/336 & Rerun before final claim \\
+MICN & ETTh2 & 96/192/336 & Rerun before final claim \\
+MICN & ETTm1 & 96/192/336 & Rerun before final claim \\
+MICN & ETTm2 & 96/192/336 & Rerun before final claim \\
+MICN & Exchange & 96/192/336 & Rerun before final claim \\
+MICN & Weather & 96/192/336 & Rerun before final claim \\
+PatchTST & Weather & 96/192/336 & Rerun before final claim \\
+\bottomrule
+\end{tabular}
+\end{table*}
