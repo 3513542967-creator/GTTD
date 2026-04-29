@@ -24,6 +24,39 @@ checkpoints/              Best model checkpoints
 results/tta/              CSV results
 ```
 
+## Datasets
+
+The retained experiments use six standard long-term forecasting datasets:
+
+| Dataset | Domain | Local path | Download/source |
+| --- | --- | --- | --- |
+| ETTh1 | Electricity transformer temperature, hourly | `benchmarks/forecasting/data/ETTh1/ETTh1.csv` | [ETDataset](https://github.com/zhouhaoyi/ETDataset) |
+| ETTh2 | Electricity transformer temperature, hourly | `benchmarks/forecasting/data/ETTh2/ETTh2.csv` | [ETDataset](https://github.com/zhouhaoyi/ETDataset) |
+| ETTm1 | Electricity transformer temperature, 15-minute | `benchmarks/forecasting/data/ETTm1/ETTm1.csv` | [ETDataset](https://github.com/zhouhaoyi/ETDataset) |
+| ETTm2 | Electricity transformer temperature, 15-minute | `benchmarks/forecasting/data/ETTm2/ETTm2.csv` | [ETDataset](https://github.com/zhouhaoyi/ETDataset) |
+| exchange_rate | Daily exchange rates | `benchmarks/forecasting/data/exchange_rate/exchange_rate.csv` | [Autoformer dataset collection](https://github.com/thuml/Autoformer) |
+| weather | Weather indicators | `benchmarks/forecasting/data/weather/weather.csv` | [Autoformer dataset collection](https://github.com/thuml/Autoformer) |
+
+The CSV files used by the retained protocol are included under
+`benchmarks/forecasting/data/` for convenience. If you replace them with freshly
+downloaded copies, keep the same directory names and file names.
+
+## Forecasting Backbones
+
+GTTD is evaluated as a test-time adaptation layer on top of four frozen
+forecasting backbones:
+
+| Backbone | Role in this repository | Reference/source |
+| --- | --- | --- |
+| DLinear | Decomposition-linear long-term forecasting backbone | [honeywell21/DLinear](https://github.com/honeywell21/DLinear) |
+| PatchTST | Patch-based Transformer time-series backbone | [PatchTST/PatchTST](https://github.com/PatchTST/PatchTST) |
+| OLS | Linear/Ridge regression benchmark baseline retained from the forecasting benchmark dependency | `benchmarks/forecasting/models/OLS.py` |
+| MICN | Multi-scale local/global convolutional forecasting backbone | [wanghq21/MICN](https://github.com/wanghq21/MICN) |
+
+The retained implementations used by these experiments live in
+`benchmarks/forecasting/models/`. The GTTD method itself lives separately in
+`gttd/`.
+
 ## Quick Checks
 
 ```bash
