@@ -1,0 +1,18 @@
+protocol: main_table
+seq_len: 96
+label_len: 48
+horizons: [96, 192, 336]
+datasets: [ETTh1, ETTh2, ETTm1, ETTm2, exchange_rate, weather]
+backbones:
+  DLinear:
+    status: retained_verified
+    config: configs/dlinear.yaml
+  PatchTST:
+    status: retained_verified
+    config: configs/patchtst.yaml
+  OLS:
+    status: runnable_train_if_missing
+    config: configs/ols.yaml
+  MICN:
+    status: runnable_train_if_missing
+    config: configs/micn.yaml

@@ -1,0 +1,9 @@
+backbone: OLS
+datasets: [ETTh1, ETTh2, ETTm1, ETTm2, exchange_rate, weather]
+horizons: [96, 192, 336]
+seq_len: 96
+label_len: 48
+protocol: main_table
+checkpoint_root: checkpoints/OLS
+status: runnable_train_if_missing
+notes: OLS checkpoints are trained on demand if missing.

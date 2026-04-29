@@ -1,0 +1,9 @@
+backbone: PatchTST
+datasets: [ETTh1, ETTh2, ETTm1, ETTm2, exchange_rate]
+horizons: [96, 192, 336]
+seq_len: 96
+label_len: 48
+protocol: main_table
+checkpoint_root: checkpoints/PatchTST
+output_csv: results/tta/gttd_patchtst.csv
+notes: Weather GTTD is intentionally omitted from the retained verified run set.

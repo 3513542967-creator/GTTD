@@ -1,0 +1,14 @@
+Attribution-NonCommercial-ShareAlike 4.0 International
+
+This repository is released for non-commercial research use under the Creative
+Commons Attribution-NonCommercial-ShareAlike 4.0 International license
+(CC BY-NC-SA 4.0):
+
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+The retained benchmark/backbone code in benchmarks/forecasting/ is derived from
+the PETSA/TAFAS forecasting benchmark implementation and keeps its original
+license text in benchmarks/forecasting/LICENSE.
+
+Third-party datasets, papers, and baseline results remain subject to their own
+licenses and citation requirements. See NOTICE.md for attribution details.

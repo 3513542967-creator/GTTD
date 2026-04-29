@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "GTTD: Persistent-Field Test-Time Adaptation"
+message: "If you use this code, please cite the associated GTTD paper."
+type: software
+authors:
+  - family-names: "Anonymous"
+    given-names: "Authors"
+repository-code: "https://github.com/REPLACE_WITH_OWNER/REPLACE_WITH_REPO"
+license: "CC-BY-NC-SA-4.0"
+keywords:
+  - time-series forecasting
+  - test-time adaptation
+  - long-term forecasting
+  - GTTD
+abstract: "Code release for GTTD, a persistent residual-field test-time adaptation method for long-term time-series forecasting."

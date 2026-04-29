@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+*.pth binary
+*.pt binary
+*.ckpt binary
+*.csv text eol=lf

@@ -1,0 +1,8 @@
+backbone: DLinear
+datasets: [ETTh1, ETTh2, ETTm1, ETTm2, exchange_rate, weather]
+horizons: [96, 192, 336]
+seq_len: 96
+label_len: 48
+protocol: main_table
+checkpoint_root: checkpoints/DLinear
+output_csv: results/tta/gttd_dlinear.csv

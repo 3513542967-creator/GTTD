@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Local editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary verification/runtime byproducts
+results/tta/smoke_data/
+results/tta/official_petsa_*/
+
+# Large local artifacts. Publish these through Releases, an external storage
+# service, or Git LFS if needed.
+checkpoints/**/*.pth
+checkpoints/**/*.pt
+checkpoints/**/*.ckpt
+
+# LaTeX is not a retained artifact for this project.
+*.tex
