@@ -1,0 +1,73 @@
+backbone,dataset,horizon,method,mse,source,verified_or_official,action
+MICN,ETTh1,96,GTTD,0.4552,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTh1,192,GTTD,0.5489,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTh1,336,GTTD,0.602,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTh2,96,GTTD,0.1935,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTh2,192,GTTD,0.291,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTh2,336,GTTD,0.345,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTm1,96,GTTD,0.348,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTm1,192,GTTD,0.4305,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTm1,336,GTTD,0.492,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTm2,96,GTTD,0.123,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTm2,192,GTTD,0.178,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,ETTm2,336,GTTD,0.236,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,Exchange,96,GTTD,0.0805,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,Exchange,192,GTTD,0.162,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,Exchange,336,GTTD,0.252,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,Weather,96,GTTD,0.132,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,Weather,192,GTTD,0.191,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+MICN,Weather,336,GTTD,0.263,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+PatchTST,Weather,96,GTTD,0.129,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+PatchTST,Weather,192,GTTD,0.187,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+PatchTST,Weather,336,GTTD,0.258,estimated_placeholder_from_table,False,rerun before using as evidence; otherwise mark as placeholder
+DLinear,ETTh1,96,GTTD,0.4458,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTh1,192,GTTD,0.5158,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTh1,336,GTTD,0.5686,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTh2,96,GTTD,0.1734,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTh2,192,GTTD,0.2667,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTh2,336,GTTD,0.3207,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTm1,96,GTTD,0.2968,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTm1,192,GTTD,0.396,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTm1,336,GTTD,0.484,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTm2,96,GTTD,0.1145,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTm2,192,GTTD,0.1616,local_gttd_csv,True,keep as verified retained result
+DLinear,ETTm2,336,GTTD,0.2126,local_gttd_csv,True,keep as verified retained result
+DLinear,Exchange,96,GTTD,0.0607,local_gttd_csv,True,keep as verified retained result
+DLinear,Exchange,192,GTTD,0.1475,local_gttd_csv,True,keep as verified retained result
+DLinear,Exchange,336,GTTD,0.2795,local_gttd_csv,True,keep as verified retained result
+DLinear,Weather,96,GTTD,0.1446,local_gttd_csv,True,keep as verified retained result
+DLinear,Weather,192,GTTD,0.2057,local_gttd_csv,True,keep as verified retained result
+DLinear,Weather,336,GTTD,0.2743,local_gttd_csv,True,keep as verified retained result
+OLS,ETTh1,96,GTTD,0.4232,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTh1,192,GTTD,0.4933,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTh1,336,GTTD,0.5504,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTh2,96,GTTD,0.1715,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTh2,192,GTTD,0.2638,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTh2,336,GTTD,0.3188,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTm1,96,GTTD,0.296,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTm1,192,GTTD,0.3958,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTm1,336,GTTD,0.4834,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTm2,96,GTTD,0.1145,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTm2,192,GTTD,0.1615,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,ETTm2,336,GTTD,0.2129,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,Exchange,96,GTTD,0.0576,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,Exchange,192,GTTD,0.1421,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,Exchange,336,GTTD,0.2787,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,Weather,96,GTTD,0.1449,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,Weather,192,GTTD,0.2059,local_gttd_previous_run_csv,True,keep as verified retained result
+OLS,Weather,336,GTTD,0.2744,local_gttd_previous_run_csv,True,keep as verified retained result
+PatchTST,ETTh1,96,GTTD,0.4105,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTh1,192,GTTD,0.4857,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTh1,336,GTTD,0.5473,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTh2,96,GTTD,0.1745,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTh2,192,GTTD,0.2574,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTh2,336,GTTD,0.3202,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTm1,96,GTTD,0.3105,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTm1,192,GTTD,0.3959,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTm1,336,GTTD,0.4679,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTm2,96,GTTD,0.1129,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTm2,192,GTTD,0.1721,local_gttd_csv,True,keep as verified retained result
+PatchTST,ETTm2,336,GTTD,0.2298,local_gttd_csv,True,keep as verified retained result
+PatchTST,Exchange,96,GTTD,0.0581,local_gttd_csv,True,keep as verified retained result
+PatchTST,Exchange,192,GTTD,0.1427,local_gttd_csv,True,keep as verified retained result
+PatchTST,Exchange,336,GTTD,0.287,local_gttd_csv,True,keep as verified retained result

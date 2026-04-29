@@ -19,6 +19,7 @@ experiments/patchtst/     PatchTST training and GTTD experiment
 experiments/ols/          OLS training and GTTD experiment
 experiments/micn/         MICN training and GTTD experiment
 scripts/                  Run and verify commands
+appendix/                 Appendix experiment plans, scripts, and table templates
 benchmarks/forecasting/   Benchmark/backbone code
 checkpoints/              Best model checkpoints
 results/tta/              CSV results
@@ -82,6 +83,7 @@ experiments/<backbone>/run_gttd.py  Backbone-specific GTTD runner
 scripts/run_gttd.py              Unified experiment launcher
 scripts/build_gttd_table_csv.py  Rebuild retained table CSV files
 results/tta/                     Paper-table GTTD CSV files
+appendix/                        Appendix experiment scripts and templates
 ```
 
 ## Code Release Notes

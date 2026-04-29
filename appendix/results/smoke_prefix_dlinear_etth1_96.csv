@@ -1,0 +1,2 @@
+backbone,dataset,horizon,k,mse,mae,improvement_vs_zero_shot_pct,latency_ms
+DLinear,ETTh1,96,3,0.513248085975647,0.487516850233078,-9.310118779222574,2199.0796999962186

@@ -1,0 +1,8 @@
+table_id,title,columns,status
+A1,Component ablation of the persistent residual-template adapter,"backbone,dataset,horizon,variant,mse,mae,delta_mse_vs_full_pct,latency_ms",template
+A2,Sparse revealed-prefix sensitivity,"backbone,dataset,horizon,k,mse,mae,improvement_vs_zero_shot_pct",template
+A3,Hyperparameter sensitivity,"parameter,value,backbone,dataset,horizon,mse,mae",template
+A4,Result provenance and verification status,"backbone,dataset,horizon,source,verified_or_official,action",template
+A5,Long-horizon tail-correction behavior,"backbone,dataset,horizon,variant,mse,mae,delta_mse_vs_full_pct",template
+A6,Latency and memory overhead,"backbone,dataset,horizon,zero_shot_ms,adapter_ms,total_ms,peak_gpu_mb",template
+A7,Stress tests under noisy or corrupted revealed prefixes,"backbone,dataset,horizon,stress_type,variant,mse,mae,stability_note",template
