@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: "Anonymous"
     given-names: "Authors"
-repository-code: "https://github.com/OuyangYifan0324/GTTD"
+repository-code: "https://github.com/3513542967-creator/GTTD"
 license: "CC-BY-NC-SA-4.0"
 keywords:
   - time-series forecasting
