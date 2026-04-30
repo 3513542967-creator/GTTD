@@ -22,3 +22,4 @@ checkpoints/**/*.ckpt
 # LaTeX is not a retained artifact for this project.
 *.tex
 !appendix/tables/*.tex
+!Paper_NeurIPS2026/gttd/*.tex
