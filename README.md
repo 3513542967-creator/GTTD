@@ -1,78 +1,115 @@
-# GTTD: Persistent Residual-Template Test-Time Adaptation
+# GTTD: Persistent-Field Test-Time Adaptation
 
-GTTD is a lightweight test-time adaptation method for long-term time-series
-forecasting. It keeps the forecasting backbone frozen and corrects predictions
-with online residual prefixes and a persistent residual template.
+This is the cleaned code release for the GTTD paper experiments. The project is
+GTTD; `benchmarks/forecasting` is only the benchmark/backbone dependency.
 
-## Quick Start
+GTTD targets long-term time-series forecasting under test-time adaptation. Frozen
+forecasting backbones first predict a future horizon; GTTD then uses residuals
+that become observable during the test-time rollout to adjust subsequent
+predictions without updating the backbone weights.
+
+## Layout
+
+```text
+configs/                  Experiment configs
+docs/                     Protocol and result notes
+gttd/                     Standalone GTTD method implementation
+experiments/dlinear/      DLinear training and GTTD experiment
+experiments/patchtst/     PatchTST training and GTTD experiment
+experiments/ols/          OLS training and GTTD experiment
+experiments/micn/         MICN training and GTTD experiment
+scripts/                  Run and verify commands
+benchmarks/forecasting/   Benchmark/backbone code
+checkpoints/              Best model checkpoints
+results/tta/              CSV results
+```
+
+## Datasets
+
+The retained experiments use six standard long-term forecasting datasets:
+
+| Dataset | Domain | Local path | Download/source |
+| --- | --- | --- | --- |
+| ETTh1 | Electricity transformer temperature, hourly | `benchmarks/forecasting/data/ETTh1/ETTh1.csv` | [ETDataset](https://github.com/zhouhaoyi/ETDataset) |
+| ETTh2 | Electricity transformer temperature, hourly | `benchmarks/forecasting/data/ETTh2/ETTh2.csv` | [ETDataset](https://github.com/zhouhaoyi/ETDataset) |
+| ETTm1 | Electricity transformer temperature, 15-minute | `benchmarks/forecasting/data/ETTm1/ETTm1.csv` | [ETDataset](https://github.com/zhouhaoyi/ETDataset) |
+| ETTm2 | Electricity transformer temperature, 15-minute | `benchmarks/forecasting/data/ETTm2/ETTm2.csv` | [ETDataset](https://github.com/zhouhaoyi/ETDataset) |
+| exchange_rate | Daily exchange rates | `benchmarks/forecasting/data/exchange_rate/exchange_rate.csv` | [Autoformer dataset collection](https://github.com/thuml/Autoformer) |
+| weather | Weather indicators | `benchmarks/forecasting/data/weather/weather.csv` | [Autoformer dataset collection](https://github.com/thuml/Autoformer) |
+
+The CSV files used by the retained protocol are included under
+`benchmarks/forecasting/data/` for convenience. If you replace them with freshly
+downloaded copies, keep the same directory names and file names.
+
+## Forecasting Backbones
+
+GTTD is evaluated as a test-time adaptation layer on top of four frozen
+forecasting backbones:
+
+| Backbone | Role in this repository | Reference/source |
+| --- | --- | --- |
+| DLinear | Decomposition-linear long-term forecasting backbone | [honeywell21/DLinear](https://github.com/honeywell21/DLinear) |
+| PatchTST | Patch-based Transformer time-series backbone | [PatchTST/PatchTST](https://github.com/PatchTST/PatchTST) |
+| OLS | Linear/Ridge regression benchmark baseline retained from the forecasting benchmark dependency | `benchmarks/forecasting/models/OLS.py` |
+| MICN | Multi-scale local/global convolutional forecasting backbone | [wanghq21/MICN](https://github.com/wanghq21/MICN) |
+
+The retained implementations used by these experiments live in
+`benchmarks/forecasting/models/`. The GTTD method itself lives separately in
+`gttd/`.
+
+## Quick Checks
 
 ```bash
 pip install -r requirements.txt
 python scripts/check_project.py
+python scripts/build_gttd_table_csv.py
 ```
 
-Run one retained experiment:
+## Run One Experiment
 
 ```bash
 python scripts/run_gttd.py --backbone DLinear --datasets ETTh1 --horizons 96 --out scratch_dlinear.csv
 ```
 
-Outputs are written to `results/tta/`.
+The output is written under `results/tta/`. Use a scratch filename for ad-hoc
+runs so the retained table CSV files stay unchanged.
 
-## Repository Map
-
-```text
-gttd/                     GTTD adapter and evaluation code
-experiments/              Backbone-specific training/evaluation runners
-scripts/                  Unified run and verification scripts
-configs/                  Experiment configs
-results/tta/              Retained CSV results
-appendix/                 Appendix experiment scripts and LaTeX tables
-benchmarks/forecasting/   Retained forecasting benchmark dependency
-```
-
-## Data and Backbones
-
-Datasets used in the retained protocol:
+## Where To Look
 
 ```text
-ETTh1, ETTh2, ETTm1, ETTm2, exchange_rate, weather
+gttd/adapter.py                  GTTD method implementation
+experiments/<backbone>/run_gttd.py  Backbone-specific GTTD runner
+scripts/run_gttd.py              Unified experiment launcher
+scripts/build_gttd_table_csv.py  Rebuild retained table CSV files
+results/tta/                     Paper-table GTTD CSV files
 ```
 
-The ETT datasets come from [ETDataset](https://github.com/zhouhaoyi/ETDataset).
-`exchange_rate` and `weather` follow the common long-term forecasting dataset
-collection used by [Autoformer](https://github.com/thuml/Autoformer).
+## Code Release Notes
 
-Supported forecasting backbones:
+- GTTD-specific code lives in `gttd/`, `experiments/`, `scripts/`, and
+  `configs/`.
+- `benchmarks/forecasting/` is a retained forecasting benchmark dependency
+  derived from the PETSA/TAFAS benchmark code and keeps its original license.
+- Large checkpoint binaries are excluded from git. Put them under
+  `checkpoints/<Backbone>/<Dataset>_<Horizon>/checkpoint_best.pth` or publish
+  them separately through GitHub Releases, Git LFS, or an archival service.
+- See `NOTICE.md` and `docs/CODE_RELEASE.md` for attribution and release-scope
+  details.
+
+## Table CSV Files
 
 ```text
-DLinear, PatchTST, OLS, MICN
+results/tta/gttd_dlinear.csv
+results/tta/gttd_patchtst.csv
+results/tta/gttd_ols.csv
+results/tta/gttd_micn.csv
 ```
 
-The retained backbone implementations live in `benchmarks/forecasting/models/`.
-GTTD-specific code is separate under `gttd/`.
+Each CSV contains only the GTTD rows for one backbone. CSV files are the source
+of truth. LaTeX tables are not retained.
 
-## Appendix Experiments
+## Citation
 
-Appendix experiment plans, real CSV outputs, and generated LaTeX tables are in:
-
-```text
-appendix/
-```
-
-Useful commands:
-
-```bash
-python appendix/scripts/build_provenance_table.py
-python appendix/scripts/build_latex_tables.py
-```
-
-## Notes
-
-- Large checkpoint binaries are excluded from git. Place them under
-  `checkpoints/<Backbone>/<Dataset>_<Horizon>/checkpoint_best.pth` when needed.
-- `benchmarks/forecasting/` is derived from the PETSA/TAFAS forecasting
-  benchmark code and keeps its original license.
-- See `NOTICE.md`, `LICENSE`, and `docs/CODE_RELEASE.md` for attribution and
-  release details.
-
+If you use this code, please cite the associated GTTD paper. Before public
+release, replace the placeholder metadata in `CITATION.cff` with the final
+paper title, author list, repository URL, and DOI/arXiv identifier if available.
