@@ -50,7 +50,7 @@ forecasting backbones:
 | --- | --- | --- |
 | DLinear | Decomposition-linear long-term forecasting backbone | [honeywell21/DLinear](https://github.com/honeywell21/DLinear) |
 | PatchTST | Patch-based Transformer time-series backbone | [PatchTST/PatchTST](https://github.com/PatchTST/PatchTST) |
-| OLS | Linear/Ridge regression benchmark baseline retained from the forecasting benchmark dependency | `benchmarks/forecasting/models/OLS.py` |
+| OLS | Linear/Ridge regression benchmark baseline retained from the TAFAS forecasting benchmark implementation | [kimanki/TAFAS](https://github.com/kimanki/TAFAS), implemented locally in `benchmarks/forecasting/models/OLS.py` |
 | MICN | Multi-scale local/global convolutional forecasting backbone | [wanghq21/MICN](https://github.com/wanghq21/MICN) |
 
 The retained implementations used by these experiments live in
