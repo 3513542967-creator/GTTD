@@ -14,13 +14,18 @@ predictions without updating the backbone weights.
 
 ![Overall framework](figures/overall_framework.png)
 
-**Toy few-shot TTA benchmark**
-
-![Toy few-shot TTA benchmark](figures/toy_few_shot_tta.png)
-
-**Main result table**
-
-![Main result table](figures/main_results_table.png)
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <b>Toy few-shot TTA benchmark</b><br>
+      <img src="figures/toy_few_shot_tta.png" width="100%">
+    </td>
+    <td width="50%" align="center">
+      <b>Main result table</b><br>
+      <img src="figures/main_results_table.png" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## Layout
 
