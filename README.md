@@ -8,6 +8,20 @@ forecasting backbones first predict a future horizon; GTTD then uses residuals
 that become observable during the test-time rollout to adjust subsequent
 predictions without updating the backbone weights.
 
+## Overview Figures
+
+**Overall framework**
+
+![Overall framework](figures/overall_framework.png)
+
+**Toy few-shot TTA benchmark**
+
+![Toy few-shot TTA benchmark](figures/toy_few_shot_tta.png)
+
+**Main result table**
+
+![Main result table](figures/main_results_table.png)
+
 ## Layout
 
 ```text
