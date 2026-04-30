@@ -96,18 +96,6 @@ results/tta/                     Paper-table GTTD CSV files
 - See `NOTICE.md` and `docs/CODE_RELEASE.md` for attribution and release-scope
   details.
 
-## Table CSV Files
-
-```text
-results/tta/gttd_dlinear.csv
-results/tta/gttd_patchtst.csv
-results/tta/gttd_ols.csv
-results/tta/gttd_micn.csv
-```
-
-Each CSV contains only the GTTD rows for one backbone. CSV files are the source
-of truth. LaTeX tables are not retained.
-
 ## Citation
 
 If you use this code, please cite the associated GTTD paper. Before public
