@@ -1,0 +1,55 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{neurips_2026}[2026/04/30 NeurIPS 2026 submission style]
+
+\newif\if@neuripsfinal
+\@neuripsfinalfalse
+
+\DeclareOption{final}{\@neuripsfinaltrue}
+\DeclareOption{preprint}{\@neuripsfinaltrue}
+\ProcessOptions\relax
+
+\RequirePackage[margin=1in]{geometry}
+\RequirePackage{microtype}
+\RequirePackage[numbers,sort&compress]{natbib}
+\RequirePackage{hyperref}
+\RequirePackage{url}
+\RequirePackage{fancyhdr}
+\RequirePackage{lineno}
+\RequirePackage{times}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt}
+\setlength{\bibsep}{1pt plus 0.3ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\if@neuripsfinal
+  \rhead{\thepage}
+\else
+  \lhead{Under review as a conference paper at NeurIPS 2026}
+  \rhead{\thepage}
+  \linenumbers
+\fi
+\renewcommand{\headrulewidth}{0.4pt}
+
+\renewcommand{\maketitle}{%
+  \begin{center}%
+    {\LARGE\bfseries \@title \par}%
+    \vskip 0.35in%
+    \if@neuripsfinal
+      {\large \@author \par}%
+    \else
+      {\large Anonymous Author(s) \par}%
+    \fi
+  \end{center}%
+  \vskip 0.2in%
+}
+
+\renewenvironment{abstract}{%
+  \begin{center}%
+    \bfseries Abstract
+  \end{center}%
+  \begin{quote}%
+}{%
+  \end{quote}%
+}

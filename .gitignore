@@ -23,3 +23,10 @@ checkpoints/**/*.ckpt
 *.tex
 !appendix/tables/*.tex
 !Paper_NeurIPS2026/gttd/*.tex
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.pdf

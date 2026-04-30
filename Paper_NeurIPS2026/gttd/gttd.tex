@@ -1,146 +1,54 @@
-%% 
-%% Copyright 2019-2024 Elsevier Ltd
-%% 
-%% Version 2.4
-%% 
-%% This file is part of the 'CAS Bundle'.
-%% --------------------------------------
-%% 
-%% It may be distributed under the conditions of the LaTeX Project Public
-%% License, either version 1.2 of this license or (at your option) any
-%% later version.  The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX
-%% version 1999/12/01 or later.
-%% 
-%% The list of all files belonging to the 'CAS Bundle' is
-%% given in the file `manifest.txt'.
-%% 
-%% Template article for cas-dc documentclass for 
-%% double column output.
+\documentclass{article}
 
-%\documentclass[a4paper,fleqn,longmktitle]{cas-dc}
-\documentclass[a4paper,fleqn]{cas-dc}
-%\usepackage[authoryear,longnamesfirst]{natbib}
-%\usepackage[authoryear]{natbib}
-\usepackage[numbers]{natbib}
-\usepackage{float}
-\usepackage{caption}
-%\usepackage[sort&compress]{natbib}
-\usepackage{amsthm} % Load the theorem package
-\newtheorem{proposition}{Proposition} % Define the 'proposition' environment
-\newtheorem{lemma}{Lemma}
+\usepackage{neurips_2026}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{algorithm}
-\usepackage{booktabs} % 鐢ㄤ簬 \toprule, \midrule, \bottomrule, \cmidrule
-\usepackage{multirow} % 鐢ㄤ簬 \multirow 鍚堝苟澶氳
-\usepackage{graphicx} % 鐢ㄤ簬 \resizebox 缂╂斁琛ㄦ牸
-\usepackage{algpseudocode}   % 鎻愪緵 \State, \For, \EndFor, \Return 绛夊懡浠?\usepackage{pifont}   % 鎻愪緵 \ding
-\usepackage{xcolor}   % 鎻愪緵 \textcolor 鍜岄鑹茶〃杈惧紡
-\usepackage{stfloats}
-\usepackage{placeins} % 绗簩姝ヤ細鐢ㄥ埌
+\usepackage{algpseudocode}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{placeins}
+\usepackage{tabularx}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=green,
+  pdfstartview=Fit,
+  breaklinks=true
+}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{remark}{Remark}[section]
-\usepackage{tabularx}
-\hypersetup{
-	colorlinks=true,
-	linkcolor=blue,
-	urlcolor=blue,
-	citecolor=green,
-	pdfstartview=Fit,
-	breaklinks=true} 
 
-
-%%%Author definitions
-\def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
-\tsc{WGM}
-\tsc{QE}
-\tsc{EP}
-\tsc{PMS}
-\tsc{BEC}
-\tsc{DE}
-%%%
+\title{GTTD: Instantaneous Test-Time Adaptation for Time Series via Manifold Harmonic Extension}
+\author{Anonymous Author(s)}
 
 \begin{document}
-	\let\WriteBookmarks\relax
-	\def\floatpagepagefraction{1}
-	\def\textpagefraction{.001}
-	\shorttitle{GTTD-TS}
-	\shortauthors{Jiaqi Liu et~al.}
-	
-	\title [mode = title]{GTTD: Instantaneous Test-Time Adaptation for Time Series via Manifold Harmonic Extension} 
-	
-	\tnotemark[1]
-	\tnotetext[1]{This work was supported by the Xiamen University Malaysia Research Fund under Grant XMUMRF/2024-C14/IECE/0055.}
-	
-	%\tnotetext[2]{The second title footnote which is a longer text matter
-		%   to fill through the whole text width and overflow into
-		%   another line in the footnotes area of the first page.}
-	
-	
-	\author[1]{Jiaqi Liu}
-	\ead{AIT2209080@xmu.edu.my}
 
-	\author[1]{Zhifei Song}
-	\ead{AIT2209089@xmu.edu.my}
-	
-	\author[1,2]{Corresponding Author}
-	\cormark[1]
-	\ead{corresponding.author@xmu.edu.my}
-	
-	
-	\affiliation[1]{organization={School of Artificial Intelligence and Robotics, Xiamen University Malaysia},
-		%                addressline={Jalan Sunsuria, Bandar Sunsuria}, 
-		city={Sepang},
-		%               citysep={}, % Uncomment if no comma needed between city and postcode
-		postcode={43900}, 
-		state={Selangor},
-		country={Malaysia}}
-	\affiliation[2]{organization={S.M.A.R.T. NEXUS Centre of Excellence, Xiamen University Malaysia},
-		%                addressline={Jalan Sunsuria, Bandar Sunsuria}, 
-		city={Sepang},
-		%               citysep={}, % Uncomment if no comma needed between city and postcode
-		postcode={43900}, 
-		state={Selangor},
-		country={Malaysia}} 
-	%\affiliation[2]{organization={School of Information Science \& Technology, Xiamen University Tan Kah Kee College},
-		% 	city={Zhangzhou},
-		% 	postcode={363105},
-		% 	country={China}}
-	
-	\cortext[cor1]{Corresponding author: Corresponding author.}
-	
-	%\fntext[fn1]{This is the first author footnote, but is common to third
-		%  author as well.}
-	%\fntext[fn2]{Another author footnote, this is a very long footnote and
-		%  it should be a really long footnote. But this footnote is not yet
-		%  sufficiently long enough to make two lines of footnote text.}
-	%
-	%\nonumnote{This note has no numbers. In this work we demonstrate $a_b$
-		%  the formation Y\_1 of a new type of polariton on the interface
-		%  between a cuprous oxide slab and a polystyrene micro-sphere placed
-		%  on the slab.
-		%  }
-	
-		\begin{abstract}
+\maketitle
+
+\begin{abstract}
             Deep time series forecasting models deployed in open-world environments are highly susceptible to performance degradation when faced with non-stationary transient extreme shocks (such as sudden extreme weather or equipment malfunctions). To cope with such sudden shifts, the model must make an instantaneous response within a very small sample window (e.g., $k \le 3$), but this leads to a serious underdetermined dilemma: existing gradient-based test-time adaptation (TTA) methods drastically distort model weights to force fit local outliers, causing catastrophic overfitting and irreversible collapse of long-term forecast trajectories. In this paper, we propose a fundamental paradigm shift, reconstructing few-sample adaptation from a fragile high-dimensional parameter optimization problem into a topologically constrained geometric error propagation process, and based on this, we propose the Geometric Topological Time Series Dynamics (GTTD) framework. GTTD models the forecast residuals as a smooth field on a time manifold and uses the graphical Laplacian operator to formulate the few-sample correction as a closed harmonic continuation problem ($\Delta_{\mathcal{M}}g=0$). The core of this design lies in its strict adherence to the discrete maximum principle, which endows the predicted trajectory with a unique "topological rubber band" effect: it can make extremely sensitive bounded corrections to transient shocks without updating any basic model weights, and ensure that the predicted trajectory can seamlessly rebound to the normal long-term trend after the anomaly subsides, fundamentally eliminating parameter contamination and illusion continuation. Extensive experiments show that GTTD, a zero-gradient framework with $O(1)$ complexity, not only completely eliminates catastrophic overfitting under extreme testing conditions, but also provides a new deployment paradigm for the transient anomaly response of non-stationary time series that combines extreme response speed with absolute structural stability.
 		
 		\end{abstract}
 	
 	%
 
-	
-    \begin{keywords}
-	    Time Series Forecasting
-	    \sep Test-Time Adaptation
-	    \sep Harmonic Extension
-	    \sep Geometric Deep Learning
-	    \sep Graph Laplacian
-	    \sep Catastrophic Overfitting
-    \end{keywords}
-	
-	
-	\maketitle
+\section*{Keywords}
+Time Series Forecasting; Test-Time Adaptation; Harmonic Extension; Geometric Deep Learning; Graph Laplacian; Catastrophic Overfitting
+
 	\section{Introduction}
 
 	Time series forecasting serves as the foundational decision-making engine across a multitude of critical industrial applications, ranging from high-frequency algorithmic trading to proactive power grid load management and extreme weather early warning systems. Over the past decade, deep learning models---particularly those based on self-attention mechanisms and Transformer architectures---have achieved remarkable success when trained offline on massive, highly curated datasets\cite{kim2024self, woo2024unified}. However, deploying these models in open-world environments exposes a fundamental vulnerability: real-world temporal data is inherently non-stationary\cite{dai2024ddn, ye2024frequency}. Models frequently encounter sudden concept drifts, structural breaks, or distribution shifts driven by exogenous macro-events\cite{liu2024time} (e.g., sudden financial market crashes or anomalous sensor faults). Under these circumstances, the independent and identically distributed (i.i.d.) assumption heavily relied upon during offline training is violently violated, rendering historical priors and learned representations obsolete\cite{liu2024time, woo2024unified}.
@@ -199,9 +107,9 @@
 	
 	\paragraph{Our Difference:} GTTD bridges these disparate domains through a novel geometric synthesis. Unlike standard spatial GNNs, GTTD uniquely repurposes the Graph Laplacian to construct a temporal geometric space (a temporal graph connecting forecasting horizons) exclusively at test time. We seamlessly translate the classic semi-supervised harmonic extension from the discrete label space into the continuous temporal error space\cite{holtz2024continuous}. By formalizing time-series TTA as a closed-form Dirichlet energy minimization problem over this temporal graph, GTTD transforms a classic machine learning theory into a state-of-the-art, zero-compute adaptation engine for deep forecasting models.
 
-	\begin{figure*}[t] % 鏄熷彿琛ㄧず璺ㄥ弻鏍忥紝[t] 寮哄埗鏀惧湪椤甸潰椤堕儴
+	\begin{figure*}[t] % 閺勭喎褰跨悰銊с仛鐠恒劌寮婚弽蹇ョ礉[t] 瀵搫鍩楅弨鎯ф躬妞ょ敻娼版い鍫曞劥
 		\centering
-		% 瀹藉害璁剧疆涓?\textwidth锛堝弻鏍忔€诲锛夛紝濡傛灉浣犺寰楀お澶э紝鍙互鏀逛负 0.9\textwidth 鎴?0.95\textwidth
+		% 鐎硅棄瀹崇拋鍓х枂娑?\textwidth閿涘牆寮婚弽蹇斺偓璇差啍閿涘绱濇俊鍌涚亯娴ｇ姾顫庡妤€銇婃径褝绱濋崣顖欎簰閺€閫涜礋 0.9\textwidth 閹?0.95\textwidth
 		\includegraphics[width=\textwidth]{figures/Overall_Framework.png}
 		\caption{The overall framework of Geometric Topological Time-series Dynamics (GTTD). The prediction residuals are mapped onto a temporal geometric graph where the few-shot adaptation is solved exactly via manifold harmonic extension without altering the base model.}
 		\label{fig:overall_framework}
@@ -393,9 +301,9 @@ To empirically validate the theoretical superiority of our manifold harmonic ext
 % 	\centering
 % 	\caption{Detailed performance comparison across different datasets and base architectures.}
 % 	\label{tab:detailed_results_full}
-% 	% --- 鏍稿績淇敼鍖?---
-% 	\footnotesize % 缂╁皬鍏ㄥ眬瀛楀彿锛岄伩鍏嶈秴鍑哄崟椤甸珮搴?% 	\setlength{\tabcolsep}{4pt} % 绋嶅井鍘嬬缉涓€鐐瑰垪闂磋窛
-% 	% 绉婚櫎浜?\renewcommand{\arraystretch}{1.2} 鍜?\resizebox
+% 	% --- 閺嶇绺炬穱顔芥暭閸?---
+% 	\footnotesize % 缂傗晛鐨崗銊ョ湰鐎涙褰块敍宀勪缉閸忓秷绉撮崙鍝勫礋妞ょ敻鐝惔?% 	\setlength{\tabcolsep}{4pt} % 缁嬪秴浜曢崢瀣級娑撯偓閻愮懓鍨梻纾嬬獩
+% 	% 缁夊娅庢禍?\renewcommand{\arraystretch}{1.2} 閸?\resizebox
 % 	% ------------------
 % 	\begin{tabular}{ll l ccccc}
 % 	\toprule
@@ -623,15 +531,15 @@ To empirically validate the theoretical superiority of our manifold harmonic ext
 
 
 
-Table \ref{tab:detailed_results_full} summarizes the global performance across all benchmarks. GTTD consistently establishes a new state-of-the-art for test-time adaptation. Traditional gradient-based fine-tuning and MAML often degrade the base model's performance due to severe overfitting on the sparse support sets. In contrast, GTTD successfully assimilates the few-shot surprise while preserving the global temporal structure, yielding substantial reductions in both MSE and MAE.
+Table \ref{tab:main_results_4_backbones_gttd} summarizes the global performance across all benchmarks. GTTD consistently establishes a new state-of-the-art for test-time adaptation. Traditional gradient-based fine-tuning and MAML often degrade the base model's performance due to severe overfitting on the sparse support sets. In contrast, GTTD successfully assimilates the few-shot surprise while preserving the global temporal structure, yielding substantial reductions in both MSE and MAE.
 
 
-To intuitively illustrate the evasion of catastrophic overfitting, Figure \ref{fig:visualization} visualizes a 3-shot structural break scenario. Gradient descent violently distorts the parameter space to memorize the local high-frequency drop, translating it into an unbounded global collapse (local MSE: $3.0745$). Conversely, GTTD achieves a local MSE of $0.0054$---a \textbf{staggering 99.82\% reduction} in adaptation error.
+To intuitively illustrate the evasion of catastrophic overfitting, a 3-shot structural break scenario visualizes the adaptation behavior. Gradient descent violently distorts the parameter space to memorize the local high-frequency drop, translating it into an unbounded global collapse (local MSE: $3.0745$). Conversely, GTTD achieves a local MSE of $0.0054$---a \textbf{staggering 99.82\% reduction} in adaptation error.
 
 \subsection{Instantaneous Adaptation Latency}
 
 
-High-frequency forecasting strictly forbids high-latency interventions. Figure \ref{fig:latency} presents the physical wall-clock time required for a single adaptation step. While gradient-based fine-tuning consumes $37.45$ ms due to iterative backpropagation, GTTD analytically solves the sparse harmonic system in exactly \textbf{0.26 ms} on a pure CPU. This $142.2\times$ physical speedup perfectly aligns with our $\mathcal{O}(1)$ complexity proof.
+High-frequency forecasting strictly forbids high-latency interventions. The latency comparison presents the physical wall-clock time required for a single adaptation step. While gradient-based fine-tuning consumes $37.45$ ms due to iterative backpropagation, GTTD analytically solves the sparse harmonic system in exactly \textbf{0.26 ms} on a pure CPU. This $142.2\times$ physical speedup perfectly aligns with our $\mathcal{O}(1)$ complexity proof.
 
 \subsection{Model-Agnostic Enhancement}
 
@@ -664,12 +572,12 @@ In real-world time series forecasting, sensors or financial markets often encoun
 \end{tabular}
 \end{table}
 
-% 娉ㄦ剰锛氫娇鐢ㄦ鏂规硶蹇呴』纭繚瀵艰█鍖哄凡鍔犺浇 \usepackage{caption} 瀹忓寘
-\begin{center}
+\begin{figure}[htbp]
+    \centering
     \includegraphics[width=\columnwidth]{figures/Global_Hyperparameter_Sensitivity.png}
-    \captionof{figure}{Global hyperparameter sensitivity curve. The forecasting performance remains structurally bounded and remarkably stable across orders of magnitude of the $\alpha$ parameter.}
+    \caption{Global hyperparameter sensitivity curve. The forecasting performance remains structurally bounded and remarkably stable across orders of magnitude of the $\alpha$ parameter.}
     \label{fig:hyper_sensitivity}
-\end{center}
+\end{figure}
 
 \paragraph{Horizon Stability.} As the horizon length increases ($H \in \{96, 192, 336, 720\}$), and as detailed in Table \ref{tab:horizon_stability}, GTTD provides strictly positive error reductions across all lengths. This proves that the harmonic diffusion successfully regulates long-term error propagation. Notably, regardless of how distant the prediction horizon is (up to $H=720$), the geometric constraints of GTTD act as a stabilizing field, maintaining a consistent positive gain and completely eliminating the catastrophic long-range error accumulation commonly observed in deep sequence models.
 
@@ -712,14 +620,14 @@ In real-world time series forecasting, sensors or financial markets often encoun
     \end{tabular}
 \end{table}
     
-% 娉ㄦ剰锛氳繖閲岀敤鐨勬槸 center 鐜锛岃€屼笉鏄?figure 鐜锛?\begin{center}
+\begin{figure}[htbp]
+    \centering
     \includegraphics[width=\columnwidth]{figures/Lipschitz_Robustness.png}
-    % 浣跨敤 \captionof 寮哄埗灏嗗叾璇嗗埆涓哄浘鐗囨爣棰樺苟缂栧叆鐩綍
-    \captionof{figure}{Empirical demonstration of Lipschitz robustness under varying levels of injected Gaussian noise, preventing catastrophic predictive collapse.}
+    \caption{Empirical demonstration of Lipschitz robustness under varying levels of injected Gaussian noise, preventing catastrophic predictive collapse.}
     \label{fig:lipschitz_robustness}
-\end{center}
+\end{figure}
 
-To further push the boundaries beyond continuous noise, we conduct a severe stress test by injecting extreme concept drifts directly into the support set. % 鎺ヤ笂浣犲師鏂?5.6 鍓╀笅鐨?Experimental Setup 绛夊唴瀹?..
+To further push the boundaries beyond continuous noise, we conduct a severe stress test by injecting extreme concept drifts directly into the support set. % 閹恒儰绗傛担鐘插斧閺?5.6 閸撯晙绗呴惃?Experimental Setup 缁涘鍞寸€?..
 \textbf{Experimental Setup.} We simulate extreme distribution shifts on the ETTh1 dataset by artificially corrupting the few-shot support window ($k=3$) with a severity level of 5.0. We introduce three distinct drift patterns: (1) Mean Shift, adding a massive constant offset; (2) Variance Shift, violently amplifying the local volatility; and (3) Frequency Injection, introducing high-frequency adversarial noise. We observe the behavior of the Zero-shot DLinear baseline and our GTTD framework under these corrupted conditions.
 
 \textbf{Results and Analysis.} As shown in Table \ref{tab:extreme_drift}, when subjected to severe anomaly injections, the base model naturally suffers from significant performance degradation. For instance, under the Frequency Injection scenario, the zero-shot MSE of the base model drastically explodes to 15.2768. In such volatile environments, generic adaptation algorithms typically collapse. However, GTTD successfully absorbs the extreme perturbations without exhibiting any catastrophic oscillation. Relying on the topological rigidity of the Dirichlet energy minimization, GTTD effectively smooths out the adversarial anomalies, acting as a robust safety valve. Consequently, GTTD not only entirely prevents negative transfer but consistently rescues the degraded predictions (e.g., reducing the local MSE to 15.0669, yielding a +1.37\% rescue improvement). These results empirically demonstrate that the harmonic extension paradigm intrinsically possesses strict bounded safety, ensuring reliable deployment in unpredictable real-world environments.
@@ -798,7 +706,7 @@ As observed in the results, naive topological structures like Temporal or k-NN g
 
 In contrast, our GTTD framework computes RBF affinities dynamically over the 128-dimensional pre-trained embeddings, precisely aligning the error propagation with the true semantic manifold of the sequence. This topological rigidity allows GTTD to preserve the pre-trained temporal dynamics while breaking the uniform-smoothing bottleneck. Consequently, the Deep Latent RBF topology achieves a definitive 4.13\% MSE reduction and 2.19\% MAE reduction in a strict zero-shot regime, demonstrating its irreplaceable role in decoding and correcting complex foundation models without updating a single parameter.
 
-\begin{table*}[t] % 寤鸿浜ゆ浛浣跨敤 [t] 鎴?[b]
+\begin{table*}[t] % 瀵ら缚顔呮禍銈嗘禌娴ｈ法鏁?[t] 閹?[b]
 \centering
 \caption{Topology Ablation in SOTA Latent Spaces. Evaluated on the IBM Granite-PatchTST foundation model under a zero-shot regime. The Deep Latent RBF precisely captures the semantic manifold, significantly outperforming naive or random graph structures.}
 \label{tab:latent_ablation}
@@ -874,9 +782,9 @@ In traditional deep learning paradigms for time-series, multivariate multi-task 
 
 To construct a dynamical system capable of spontaneously adapting to Test-Time distribution shifts, GTTD must first thoroughly dismantle the Euclidean base space assumption and reconstruct the evolution of time and tasks as geometric objects on a \textbf{Riemannian Manifold}.
 
-\subsubsection{Topological Construction of the Latent Base Manifold $\mathcal{M}$}
+\subsubsection{Topological Construction of the Latent Base Manifold \texorpdfstring{$\mathcal{M}$}{M}}
 
-Instead of treating tasks as discrete integer indices (i.e., $k \in \{1, 2, \dots, K\}$), we assume that all possible tasks鈥攊ncluding known tasks and unseen tasks encountered in few-shot scenarios鈥攃oexist on a continuous $m$-dimensional Riemannian manifold $\mathcal{K}$.
+Instead of treating tasks as discrete integer indices (i.e., $k \in \{1, 2, \dots, K\}$), we assume that all possible tasks---including known tasks and unseen tasks encountered in few-shot scenarios---coexist on a continuous $m$-dimensional Riemannian manifold $\mathcal{K}$.
 
 \begin{definition}[Task Manifold $\mathcal{K}$]
 Let the task manifold $\mathcal{K}$ be an $m$-dimensional smooth manifold equipped with a Riemannian metric tensor $g_{\mathcal{K}}$. For any point $k \in \mathcal{K}$, its tangent space is $T_k\mathcal{K}$. The metric tensor $g_{\mathcal{K}}$ defines the inner product of vectors in the tangent space, thereby strictly characterizing the non-linear topological distance between different tasks:
@@ -967,7 +875,7 @@ where $G$ is the structure group acting on the typical fiber $\mathcal{F}$; for 
 \end{definition}
 
 \begin{remark}[Refuting "Stacking"]
-This topological definition provides a strong engineering endorsement: information transfer between tasks is absolutely not a simple feature concatenation or non-linear stacking of MLPs (Multi-Layer Perceptrons)! The transfer of information across tasks is intrinsically about finding the correct Lie Group Transformation $g_{\alpha\beta} \in G$. This also explains why, in the main paper, we steadfastly do not update the weights $\theta$ of the base model鈥攂ecause the base model has already learned excellent representations within the local fibers; few-shot adaptation is merely solving for the group transformation law at the manifold level, without needing to destructively update the local weights of the network from scratch.
+This topological definition provides a strong engineering endorsement: information transfer between tasks is absolutely not a simple feature concatenation or non-linear stacking of MLPs (Multi-Layer Perceptrons)! The transfer of information across tasks is intrinsically about finding the correct Lie Group Transformation $g_{\alpha\beta} \in G$. This also explains why, in the main paper, we steadfastly do not update the weights $\theta$ of the base model---because the base model has already learned excellent representations within the local fibers; few-shot adaptation is merely solving for the group transformation law at the manifold level, without needing to destructively update the local weights of the network from scratch.
 \end{remark}
 
 \subsubsection{The Ultimate Redefinition of Forecasting Tasks: Section Extension}
@@ -985,7 +893,7 @@ A local section is a smooth mapping $s: U \subset \mathcal{M} \to \mathcal{E}$, 
 
 \noindent \textbf{Physical Meaning:} The section $s(p)$ acts like a comb, extremely precisely "picking out" the unique true feature vector that exists at that moment from every spatiotemporal-task coordinate point $p$ of the base manifold $\mathcal{M}$.
 
-\subsection{Geometric Necessity of Covariant Derivatives and Gauge Connections $A_\mu$}
+\subsection{Geometric Necessity of Covariant Derivatives and Gauge Connections \texorpdfstring{$A_\mu$}{A-mu}}
 
 \subsubsection{Failure of Partial Derivatives and Evolution of Local Frames}
 
@@ -1008,7 +916,7 @@ Therefore, according to the Leibniz rule, the true rate of change of the state v
 
 The additional term $s^a (\partial_\mu e_a)$ in the formula represents the "rate of change of the basis itself." Since $\partial_\mu e_a$ still lies within the fiber space at that point, it can necessarily be expressed linearly by the basis $\{e_b\}$ at that point.
 
-\subsubsection{Introduction of Gauge Connection $A_\mu$}
+\subsubsection{Introduction of Gauge Connection \texorpdfstring{$A_\mu$}{A-mu}}
 
 We define the linear combination coefficient matrix of the basis's rate of change as $A_{\mu \ a}^{\ b}$:
 \begin{equation}
@@ -1095,7 +1003,7 @@ Suppose during the Test-Time phase, we capture $k$ true observation points withi
 e_c = y_c - \hat{y}_c
 \end{equation}
 
-Using the Dirac Delta distribution, we transform these $k$ discrete few-shot residuals into a continuous differential form on the base manifold $\mathcal{M}$鈥攖he \textbf{Information Current Density} $J$:
+Using the Dirac Delta distribution, we transform these $k$ discrete few-shot residuals into a continuous differential form on the base manifold $\mathcal{M}$---the \textbf{Information Current Density} $J$:
 \begin{equation}
 J = \sum_{c=1}^k e_c \cdot \delta(x - x_c) dx^1 \wedge dx^2 \wedge \dots \wedge dx^m
 \end{equation}
@@ -1220,7 +1128,7 @@ This equation completely settles the debate on "how to perfectly integrate a sma
 
 To solve the ultimate prediction equation and the Yang-Mills equation with source derived in Section C.1 under limited computational resources, we must map the continuous differential manifold $\mathcal{M}$ and its geometric tensors onto discrete algebraic structures.
 
-\subsubsection{Simplicial Complexification of Base Manifold $\mathcal{M}$}
+\subsubsection{Simplicial Complexification of Base Manifold \texorpdfstring{$\mathcal{M}$}{M}}
 
 We partition the originally continuous spatiotemporal-task base manifold $\mathcal{M}$ into a Simplicial Complex $\mathcal{K}$. In low-dimensional scenarios, it can be intuitively understood as a high-dimensional topological graph network composed of vertices, edges, and faces.
 
@@ -1363,7 +1271,7 @@ Expanding the block matrix and substituting:
 L_{\mathcal{US}} g_S + L_{\mathcal{UU}} g_{\mathcal{U}} = \mathbf{0}
 \end{equation}
 
-Substituting $g_S = e_S$, and through simple algebraic transposition鈥攕ince the temporal graph is physically strongly connected, the submatrix $L_{\mathcal{UU}}$ must be Symmetric Positive Definite, hence its inverse matrix strictly exists. By left-multiplying $L_{\mathcal{UU}}^{-1}$ on both sides of the equation, we finally obtain the exact closed-form solution for the correction of the unknown states:
+Substituting $g_S = e_S$, and through simple algebraic transposition---since the temporal graph is physically strongly connected, the submatrix $L_{\mathcal{UU}}$ must be Symmetric Positive Definite, hence its inverse matrix strictly exists. By left-multiplying $L_{\mathcal{UU}}^{-1}$ on both sides of the equation, we finally obtain the exact closed-form solution for the correction of the unknown states:
 \begin{equation}
 g_{\mathcal{U}} = -L_{\mathcal{UU}}^{-1} L_{\mathcal{US}} e_S
 \end{equation}
@@ -1508,7 +1416,7 @@ Utilizing the spectral norm inequality of matrix exponentials $||e^X - I||_{\tex
 E_{\text{gen}} \leq \exp \left( \iint_\Sigma ||F||_{\text{op}} d\sigma \right) - 1
 \end{equation}
 
-\noindent\textbf{Physical Depth Mapping:} This formula proves in extremely cold mathematical language that鈥攖he difficulty of multi-task generalization is strictly proportional to the integral of total curvature (i.e., the total amount of "informational gravitational field" contained) within the region of the task manifold you need to cross. The denser the historical data and the more severe the conflicts (the larger the curvature $F$) in the region you cross, the more your generalization uncertainty grows exponentially.
+\noindent\textbf{Physical Depth Mapping:} This formula proves in extremely cold mathematical language that the difficulty of multi-task generalization is strictly proportional to the integral of total curvature (i.e., the total amount of "informational gravitational field" contained) within the region of the task manifold you need to cross. The denser the historical data and the more severe the conflicts (the larger the curvature $F$) in the region you cross, the more your generalization uncertainty grows exponentially.
 
 \subsubsection{Betti Numbers and the Aharonov-Bohm Effect}
 
@@ -1549,18 +1457,18 @@ At the engineering implementation level, the GTTD framework not only discovers t
 	
 	
 	
-	%\verb+\printcredits+ command is used after appendix sections to list author credit taxonomy contribution roles tagged using \verb+\credit+ in frontmatter.
+	%\verb+% \\printcredits+ command is used after appendix sections to list author credit taxonomy contribution roles tagged using \verb+\credit+ in frontmatter.
 	
-	\printcredits
+	% \\printcredits
 	
 	%% Loading bibliography style file
 	%\bibliographystyle{model1-num-names}
-	\bibliographystyle{elsarticle-num}
+	\bibliographystyle{plainnat}
 	%\bibliography{Reference}
 	
 	
 	% Loading bibliography database
-	\bibliography{rrrrr.bib}
+	\bibliography{rrrrr}
 	
 	
 	%\vskip3pt
@@ -1568,4 +1476,5 @@ At the engineering implementation level, the GTTD framework not only discovers t
 	
 	
 \end{document}
+
 
